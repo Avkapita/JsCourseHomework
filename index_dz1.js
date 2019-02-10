@@ -48,9 +48,6 @@ function returnFnResult(fn) {
   return fn();
   }
 
-  returnFnResult(() => 'привет')
-
-}
 
 /*
  Задание 4:
@@ -71,9 +68,6 @@ function returnCounter(number) {
   }
   return F();
 }
-var f = returnCounter(10);
-console.log(f);
-
 
 
 
@@ -89,7 +83,7 @@ console.log(f);
 function returnArgumentsArray() {
   return Array.from(arguments);
 };
-returnArgumentsArray(1, 2, 3); 
+ 
 
 /*
  Задание 6 *:
