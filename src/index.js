@@ -12,9 +12,7 @@
 
  Другими словами: функция должна возвращать в неизменном виде то, что поступает ей на вход
  */
-function returnFirstArgument(a) {
-  return a;
-}
+const returnFirstArgument = a => a;
 
 /*
  Задание 2:
@@ -31,10 +29,7 @@ function returnFirstArgument(a) {
    sumWithDefaults(10) вернет 110
  */
 
-function sumWithDefaults(a, b) {
-  b = b || 100;
-  return a + b;
-}
+const sumWithDefaults = (a, b =100) => a + b;
 
 /*
  Задание 3:
@@ -45,8 +40,8 @@ function sumWithDefaults(a, b) {
    returnFnResult(() => 'привет') вернет 'привет'
  */
 function returnFnResult(fn) {
-  return fn();
-  }
+	return fn();
+}
 
 
 /*
@@ -62,13 +57,11 @@ function returnFnResult(fn) {
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
-function returnCounter(number) {
-  function F() {
-    return number+=1;
-  }
-  return F();
+function returnCounter (number = 0) {
+	return function() {
+		return ++number;
+	}
 }
-
 
 
 /*
@@ -81,7 +74,7 @@ function returnCounter(number) {
    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
  */
 function returnArgumentsArray() {
-  return Array.from(arguments);
+	return Array.from(arguments);
 };
  
 
@@ -100,7 +93,9 @@ function returnArgumentsArray() {
 
    console.log(newSum()) выведет 6
  */
-   function bindFunction(fn) {}
+function bindFunction(fn) {
+	
+}
 
 export {
     returnFirstArgument,
