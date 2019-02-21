@@ -7,10 +7,12 @@
  Посмотрите как работает forEach и повторите это поведение для массива, который будет передан в параметре array
  */
 function forEach(array, fn) {
-	for (var i = 0; i < array.length; i++) // перебираем элементы массива
+	for (var i = 0; i < array.length; i++) {
 		var result = fn(array[i], i, array);
-		return result; // для каждой итерации вызываем функцию fn и присваиваем значение переменной result;
 	}
+
+	return result; 
+}
 
 /*
  Задание 2:
@@ -23,14 +25,15 @@ function fn(a) {
 	var sum = a*2;
 	return sum;
 };
-var resultArray = [];
 map(array, fn);*/
+var resultArray = [];
 
 function map(array, fn) {
 	for (var i = 0; i < array.length; i++) {
 		
 		resultArray[i] = fn(array[i]);
 	}
+
 	return resultArray;
 }
 
@@ -40,31 +43,31 @@ function map(array, fn) {
  Напишите аналог встроенного метода reduce для работы с массивами
  Посмотрите как работает reduce и повторите это поведение для массива, который будет передан в параметре array
  */
- /*var arr=[1,2,3,4,5]; 
-function fn(prevValue, array[i], i, array) {
-	var res = array[i]+prevValue;
-	console.log(res);
-	return res;
-};
-reduce(arr, fn, 2);*/
+var array = [1, 2, 3, 4, 5];
 
-
-/*
-function reduce(array, fn, initial) {
-	if (!initial) {
-		prevValue = array[0];
-		for (var i=1; i<array.length; i++) {
-			fn(prevValue, array[i], i, array) {};
-			console.log(res);
+function fn(prevValue, array) {
+			for (var i = 0; i < array.length-1; i++) {
+				curItem = array[i + 1];
+            	prevValue = prevValue + curItem;
+     		}
+			
 		}
+
+function reducing(fn, initialValue, array) {
+	if (initialValue) {
+		prevValue = initialValue;
+		
+		fn();
 	} else {
-		prevValue = initial;
-		for (var i = 0; i<array.length; i++) {
-			fn(prevValue, array[i], i, array) {};
-			console.log(res);
-		}
-	}
-*/
+		prevValue = array[0];
+		fn();
+	} 
+	var result = fn();
+	return result;
+}
+
+
+reducing(fn, 1, array);
 
 /*
  Задание 4:
@@ -78,16 +81,17 @@ function reduce(array, fn, initial) {
     	name: 'Сергей', 
     	lastName: 'Петров'};
     */
+var resultArr = [];
+
 function upperProps(obj) {
-	var resultArray = [];
 		for (var key in obj) {
 			var result = key.toUpperCase();
-          	resultArray.push(result);
+          	resultArr.push(result);
       	}
-	return resultArray;
-	} 
-/*upperProps(a);*/
 
+	return resultArr;
+} 
+/* upperProps(a);*/
 
 /*
  Задание 5 *:
@@ -95,8 +99,18 @@ function upperProps(obj) {
  Напишите аналог встроенного метода slice для работы с массивами
  Посмотрите как работает slice и повторите это поведение для массива, который будет передан в параметре array
  */
+ var array = [1,2,3,4,5];	
+ var newArray = [];
 function slice(array, from, to) {
+	newArray.length = to;
+	for (i = 0; i < newArray.length; i++) {
+		newArray[i] = array[from + i];
+		return newArray;
+	}
+	return newArray;
 }
+slice(newArray, 2, 2);
+
 
 /*
  Задание 6 *:
