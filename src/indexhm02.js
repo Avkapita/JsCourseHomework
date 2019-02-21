@@ -46,11 +46,11 @@ function map(array, fn) {
 var array = [1, 2, 3, 4, 5];
 
 function fn(prevValue, array) {
-			for (var i = 0; i < array.length-1; i++) {
-				curItem = array[i + 1];
+			for (var i = 0; i < array.length; i++) {
+				curItem = array[i + 1];//2,3,4,
             	prevValue = prevValue + curItem;
      		}
-			
+			return prevValue;
 		}
 
 function reducing(fn, initialValue, array) {
