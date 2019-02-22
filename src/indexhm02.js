@@ -20,14 +20,14 @@ function forEach(array, fn) {
  Напишите аналог встроенного метода map для работы с массивами
  Посмотрите как работает map и повторите это поведение для массива, который будет передан в параметре array
  */
-/*var array=[1,2,3,4,5]; 
+//var array=[1,2,3,4,5]; 
+/*
 function fn(a) {
 	var sum = a*2;
 	return sum;
 };
-map(array, fn);*/
+*/
 var resultArray = [];
-
 function map(array, fn) {
 	for (var i = 0; i < array.length; i++) {
 		
@@ -37,37 +37,42 @@ function map(array, fn) {
 	return resultArray;
 }
 
+map(array, fn);
+
 /*
  Задание 3:
 
  Напишите аналог встроенного метода reduce для работы с массивами
  Посмотрите как работает reduce и повторите это поведение для массива, который будет передан в параметре array
  */
-var array = [1, 2, 3, 4, 5];
 
-function fn(prevValue, array) {
+function fnr(prevValue) {
+
 			for (var i = 0; i < array.length; i++) {
-				curItem = array[i + 1];//2,3,4,
+              console.log(curItem,prevValue);
+				curItem = array[i + 1];
+               console.log(curItem,prevValue);
             	prevValue = prevValue + curItem;
+               console.log(curItem,prevValue);
      		}
 			return prevValue;
 		}
 
-function reducing(fn, initialValue, array) {
+function reducing(initialValue, array, fnr) {
+   console.log(array);
 	if (initialValue) {
 		prevValue = initialValue;
 		
-		fn();
+		fnr();
 	} else {
 		prevValue = array[0];
-		fn();
+
+		fnr();
 	} 
-	var result = fn();
-	return result;
 }
 
-
-reducing(fn, 1, array);
+var arr = [1, 2, 3, 4, 5];
+reducing(0, (...arr), fnr);
 
 /*
  Задание 4:
